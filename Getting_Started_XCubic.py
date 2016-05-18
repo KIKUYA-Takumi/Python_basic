@@ -1,3 +1,3 @@
-InputNunber = input('Input: ')
+InputNunber = input('')
 x = int(InputNunber) ** 3
-print('Output=',x)
+print(x)
