@@ -1,20 +1,21 @@
 r,c = map(int,input().split())
-matrix = [[0 for i in range(c)]for j in range(r)]
-for x in range(r):
-    matrix[x][:c] = map(int,input().split())
-
+matrix = [list(map(int,input().split())) for i in range(r)]
 for i in range(r):
-    totalc = 0
-    for j in range(c):
-        totalc += matrix[i][j]
-    matrix[i][j].append(totalc)
+    matrix[i].append(sum(matrix[i]))
 
-for i in range(c):
-    totalr = 0
+row = []
+
+for i in range (c+1):
+    row_sum = 0
     for j in range(r):
-        totalr += matrix[j][i]
-    matrix[j].append(totalr)
+        row_sum += matrix[j][i]
+    row.append(row_sum)
 
-print(matrix)
-
-
+matrix.append(row)
+for i in range(r+1):
+    for j in range(c+1):
+        print(matrix[i][j],end="")
+        if j != c:
+            print(" ",end="")
+        if j == c :
+            print("")
